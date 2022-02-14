@@ -17,27 +17,29 @@ function App() {
     setName(event.target.value);
   }
 
-  function submitHandler() {
+  function submitHandler(event) {
     setDisplayName(name);
+    event.preventDefault();
   }
   return (
     <div className="container">
       <h1>Hello {displayName}</h1>
-      <input
-        type="text"
-        placeholder="What's your name?"
-        value={name}
-        onChange={formHandler}
-      />
-      <button
-        onMouseOver={mouseOverHandler}
-        onMouseOut={mouseOutHandler}
-        style={{ backgroundColor: mouseOverState ? "black" : "white" }}
-        type="submit"
-        onClick={submitHandler}
-      >
-        Submit
-      </button>
+      <form action="" onSubmit={submitHandler}>
+        <input
+          type="text"
+          placeholder="What's your name?"
+          value={name}
+          onChange={formHandler}
+        />
+        <button
+          onMouseOver={mouseOverHandler}
+          onMouseOut={mouseOutHandler}
+          style={{ backgroundColor: mouseOverState ? "black" : "white" }}
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
     </div>
   );
 }
