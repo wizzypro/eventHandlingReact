@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 function App() {
-  const [btnBG, setBtnBG] = useState({ backgroundColor: "white" });
+  const [mouseOverState, setMouseOverState] = useState(false);
 
   function mouseOverHandler() {
-    setBtnBG({ backgroundColor: "black" });
+    setMouseOverState(true);
   }
 
   function mouseOutHandler() {
-    setBtnBG({ backgroundColor: "white" });
+    setMouseOverState(false);
   }
   return (
     <div className="container">
@@ -17,7 +17,7 @@ function App() {
       <button
         onMouseOver={mouseOverHandler}
         onMouseOut={mouseOutHandler}
-        style={btnBG}
+        style={{ backgroundColor: mouseOverState ? "black" : "white" }}
       >
         Submit
       </button>
